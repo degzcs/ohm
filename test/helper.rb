@@ -4,6 +4,7 @@ rescue LoadError
 end
 
 require "cutest"
+require "pry"
 
 def silence_warnings
   original_verbose, $VERBOSE = $VERBOSE, nil
@@ -16,7 +17,7 @@ $VERBOSE = true
 
 require_relative "../lib/ohm"
 
-Ohm.redis = Redic.new("redis://127.0.0.1:6379")
+Ohm.redis = Redis.new(url: "redis://127.0.0.1:6379")
 
 prepare do
   Ohm.redis.call("FLUSHALL")

@@ -2,7 +2,7 @@
 
 require "json"
 require "nest"
-require "redic"
+require "redis"
 require "stal"
 
 module Ohm
@@ -102,7 +102,7 @@ module Ohm
   #   Ohm.redis.call("FLUSH")
   #
   def self.redis
-    @redis ||= Redic.new
+    @redis ||= Redis.new
   end
 
   def self.redis=(redis)
